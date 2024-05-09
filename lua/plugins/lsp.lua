@@ -149,21 +149,11 @@ return {
     },
   },
 
-  --  setting lspsaga
+  --  call lspsaga
   {
-    "kvimdev/lspsaga.nvim",
+    "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup({})
-
-      local keymap = vim.keymap
-      keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-      keymap.set("n", "lf", "<cmd>Lspsaga lsp_finder<CR>")
-      keymap.set("n", "rk", "<cmd>Lspsaga peek_definition<CR>")
-      keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
-      keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
-      keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")
-      keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-      keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
     end,
   },
 }
