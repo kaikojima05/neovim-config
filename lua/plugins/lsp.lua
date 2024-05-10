@@ -156,4 +156,16 @@ return {
       require("lspsaga").setup({})
     end,
   },
+
+  -- lsp_signature setting
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function()
+      require("lsp_signature").setup({
+        hint_enable = false,
+      })
+    end,
+  },
 }
