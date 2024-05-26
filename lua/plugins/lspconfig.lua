@@ -1,37 +1,13 @@
 return {
-  -- tools
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "stylua",
-        "selene",
-        "luacheck",
-        "shellcheck",
-        "shfmt",
-        "tailwindcss-language-server",
-        "typescript-language-server",
-        "intelephense",
-        "css-lsp",
-      })
-    end,
-  },
-
-  -- lsp servers
   {
     "neovim/nvim-lspconfig",
-    init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = {
-        "gd",
-        function()
-          -- DO NOT RESUSE WINDOW
-          require("telescope.builtin").lsp_definitions({ reuse_win = false })
-        end,
-        desc = "Goto Definition",
-        has = "definition",
-      }
-    end,
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      {
+        "antosha417/nvim-lsp-file-operations",
+        config = true,
+      },
+    },
     opts = {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
@@ -146,74 +122,15 @@ return {
           },
         },
       },
-      setup = {},
     },
-  },
+    config = function(_, opts)
+      local lspconfig = require("lspconfig")
 
-  --  call lspsaga
-  {
-    "nvimdev/lspsaga.nvim",
-    config = function()
-      require("lspsaga").setup({})
-    end,
-  },
-
-  -- lsp_signature setting
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function()
-      require("lsp_signature").setup({
-        hint_enable = false,
-      })
-    end,
-  },
-
-  -- icons
-  {
-    "onsails/lspkind.nvim",
-    opt = true,
-    config = function()
-      require("lspkind").init({
-        -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-        mode = "symbol_text",
-        -- default symbol map
-        -- can be either 'default' (requires nerd-fonts font) or
-        -- 'codicons' for codicon preset (requires vscode-codicons font)
-        --
-        -- default: 'default'
-        preset = "codicons",
-
-        symbol_map = {
-          Text = "󰉿",
-          Method = "󰆧",
-          Function = "󰊕",
-          Constructor = "",
-          Field = "󰜢",
-          Variable = "󰀫",
-          Class = "󰠱",
-          Interface = "",
-          Module = "",
-          Property = "󰜢",
-          Unit = "󰑭",
-          Value = "󰎠",
-          Enum = "",
-          Keyword = "󰌋",
-          Snippet = "",
-          Color = "󰏘",
-          File = "󰈙",
-          Reference = "󰈇",
-          Folder = "󰉋",
-          EnumMember = "",
-          Constant = "󰏿",
-          Struct = "󰙅",
-          Event = "",
-          Operator = "󰆕",
-          TypeParameter = "",
-          Copilot = "",
-        },
-      })
+      for server, config in pairs(opts.servers) do
+        -- disable format to all lsp server
+        config.on_attach = config.on_attach or opts.on_attach
+        lspconfig[server].setup(config)
+      end
     end,
   },
 }
