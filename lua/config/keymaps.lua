@@ -61,3 +61,10 @@ keymap.set(
   "<cmd>lua vim.diagnostic.goto_prev({severity = { min = vim.diagnostic.severity.WARNING, max = vim.diagnostic.severity.WARNING }})<CR>",
   { noremap = true, silent = true }
 )
+
+-- replace
+vim.api.nvim_set_keymap("n", "*", ":keepjumps normal! mi*`i<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>vy", "cgn", { noremap = true, silent = true })
+
+-- toggle fold
+vim.api.nvim_set_keymap("n", "<C-]>", "za", { noremap = true, silent = true })
