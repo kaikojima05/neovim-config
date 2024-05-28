@@ -41,4 +41,4 @@ vim.opt.showcmd = true
 vim.opt.scrolloff = 10
 
 -- shell
-vim.opt.shell = "fish"
+vim.opt.shell = "zsh"
