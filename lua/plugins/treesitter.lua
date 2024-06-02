@@ -19,7 +19,16 @@ return {
         "rust",
         "scss",
         "sql",
+        "javascript",
+        "typescript",
+        "tsx",
         "svelte",
+        "lua",
+        "c",
+        "query",
+        "vim",
+        "vimdoc",
+        -- "markdown",
       },
 
       -- matchup = {

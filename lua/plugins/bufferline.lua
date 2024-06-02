@@ -9,22 +9,20 @@ return {
     },
     opts = {
       options = {
-        mode = "buffer",
+        mode = "tabs",
         separator_style = "slant",
         show_buffer_close_icons = false,
         show_close_icon = false,
       },
     },
     config = function()
-      local highlights = require("nord").bufferline.highlights({
-        italic = true,
-        bold = true,
-        fill = "#181c24",
-      })
-
-      require("bufferline").setup({
-        highlights = highlights,
-      })
+      -- local highlights = require("kanagawa").bufferline.highlights({
+      --   italic = true,
+      --   bold = true,
+      --   fill = "#181c24",
+      -- })
+      --
+      require("bufferline").setup({})
     end,
   },
 }
