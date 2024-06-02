@@ -48,6 +48,15 @@ return {
             },
           },
         },
+        intelephense = {
+          settings = {
+            intelephense = {
+              files = {
+                maxSize = 1000000,
+              },
+            },
+          },
+        },
         html = {},
         yamlls = {
           settings = {

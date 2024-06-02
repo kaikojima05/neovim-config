@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     opt = {
       options = {
-        theme = "solarized_dark",
+        theme = "kanagawa",
       },
     },
   },
