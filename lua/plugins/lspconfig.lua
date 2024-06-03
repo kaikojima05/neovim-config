@@ -66,7 +66,6 @@ return {
           },
         },
         lua_ls = {
-          -- enabled = false,
           single_file_support = true,
           settings = {
             Lua = {
@@ -98,7 +97,6 @@ return {
               },
               diagnostics = {
                 disable = { "incomplete-signature-doc", "trailing-space" },
-                -- enable = false,
                 groupSeverity = {
                   strong = "Warning",
                   strict = "Warning",
