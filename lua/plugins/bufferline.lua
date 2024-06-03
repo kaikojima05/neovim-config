@@ -7,22 +7,18 @@ return {
       { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
       { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
     },
-    opts = {
-      options = {
-        mode = "tabs",
-        separator_style = "slant",
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-      },
-    },
     config = function()
-      -- local highlights = require("kanagawa").bufferline.highlights({
-      --   italic = true,
-      --   bold = true,
-      --   fill = "#181c24",
-      -- })
-      --
-      require("bufferline").setup({})
-    end,
+      require("bufferline").setup({
+        options = {
+          mode = "tabs",
+          separator_style = "slant",
+          show_buffer_close_icons = false,
+          show_close_icon = false,
+        },
+        fill = {
+          guibg = "#181c24",
+        },
+      })
+    end, -- end,
   },
 }
