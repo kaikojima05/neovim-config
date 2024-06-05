@@ -15,3 +15,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.conceallevel = 0
   end,
 })
+
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function()
+    local swap_dir = vim.fn.expand("~/.local/state/nvim/swap//")
+    vim.fn.system("find " .. swap_dir .. " -type f -name '*.swp' -delete")
+  end,
+})

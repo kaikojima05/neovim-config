@@ -1,7 +1,11 @@
 return {
   {
     "folke/noice.nvim",
+    event = "VeryLazy",
     opts = function(_, opts)
+      opts.routes = opts.routes or {}
+
+      -- the filtered to notify
       table.insert(opts.routes, {
         filter = {
           event = "notify",
@@ -9,6 +13,7 @@ return {
         },
         opts = { skip = true },
       })
+
       local focused = true
       vim.api.nvim_create_autocmd("FocusGained", {
         callback = function()
@@ -20,6 +25,7 @@ return {
           focused = false
         end,
       })
+
       table.insert(opts.routes, 1, {
         filter = {
           cond = function()
@@ -48,7 +54,15 @@ return {
         end,
       })
 
-      opts.presets.lsp_doc_border = true
+      -- the setup custom notify
+      require("noice").setup({
+        routes = opts.routes,
+        commands = opts.commands,
+        notify = {
+          enabled = true,
+          view = "notify",
+        },
+      })
     end,
   },
 }
