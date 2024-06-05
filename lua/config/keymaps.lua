@@ -25,6 +25,8 @@ keymap.set("n", ";dd", '"_dd', {})
 keymap.set("n", ";dw", '"_dw', {})
 keymap.set("n", ";dl", '"_dl', {})
 keymap.set("n", "le", "b", {})
+keymap.set("n", "<leader>j", "20j", {})
+keymap.set("n", "<leader>k", "20k", {})
 
 -- mode visual
 keymap.set("v", ";d", '"_d', {})
