@@ -5,6 +5,7 @@ return {
     config = function()
       local bracketed = require("mini.bracketed")
       bracketed.setup({
+        indent = { suffix = "a" },
         file = { suffix = "" },
         window = { suffix = "" },
         quickfix = { suffix = "" },
