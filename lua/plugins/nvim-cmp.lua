@@ -31,10 +31,10 @@ return {
         window = {
           completion = {
             border = "rounded",
-            side_padding = 1.5,
           },
           documentation = {
             border = "rounded",
+            max_height = 10,
             max_width = 100,
           },
         },
