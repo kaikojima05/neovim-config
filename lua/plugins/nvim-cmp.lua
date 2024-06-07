@@ -25,8 +25,18 @@ return {
         formatting = {
           format = lspkind.cmp_format({
             mode = "symbol",
-            max_width = 50,
+            max_width = 100,
           }),
+        },
+        window = {
+          completion = {
+            border = "rounded",
+          },
+          documentation = {
+            border = "rounded",
+            max_height = 10,
+            max_width = 100,
+          },
         },
       })
     end,
