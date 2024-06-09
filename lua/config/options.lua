@@ -8,7 +8,7 @@ vim.opt.fileencoding = "utf-8"
 
 -- rows
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.wrap = false
 
 -- indent
